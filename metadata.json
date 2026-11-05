@@ -1,0 +1,6 @@
+{
+  "name": "D2K — Premium Personal Brand & Professional Services",
+  "description": "Official personal-brand and professional services website for D2K (@dahmie2k) — Entrepreneur, Consultant, Logistics Expert, Realtor, and Project Manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
