@@ -2,7 +2,7 @@ import React from 'react';
 import { PageId } from '../types';
 import { BRAND_INFO } from '../data/content';
 import { ArrowRight, ShieldCheck, Briefcase, Truck, Building, Target, Zap, Phone, Mail, Instagram } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ScrollPop } from '../components/ScrollPop';
 
 interface AboutProps {
   onNavigate: (page: PageId) => void;
@@ -14,7 +14,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate, onOpenContactModal }) 
     <div className="min-h-screen bg-[#0a0a0a] text-[#F5F5F5] pt-24 pb-20">
       {/* Header Banner */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-[#1c1c1c]">
-        <div className="max-w-3xl space-y-4">
+        <ScrollPop direction="up" className="max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161616] border border-[#2e2e2e] text-xs font-medium text-[#D4AF37]">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Professional Biography</span>
@@ -25,13 +25,13 @@ export const About: React.FC<AboutProps> = ({ onNavigate, onOpenContactModal }) 
           <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed">
             Multidisciplinary professional and strategist operating at the pinnacle of modern entrepreneurship, business consulting, logistics, real estate, and project management.
           </p>
-        </div>
+        </ScrollPop>
       </section>
 
       {/* Main Content & Portrait */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollPop direction="left" className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl overflow-hidden border border-[#262626] bg-[#121212] aspect-[4/5] shadow-2xl relative">
               <img
                 src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=1000"
@@ -74,9 +74,9 @@ export const About: React.FC<AboutProps> = ({ onNavigate, onOpenContactModal }) 
                 Schedule Consultation
               </button>
             </div>
-          </div>
+          </ScrollPop>
 
-          <div className="lg:col-span-7 space-y-8">
+          <ScrollPop direction="right" className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold">
                 Executive Overview
@@ -123,17 +123,19 @@ export const About: React.FC<AboutProps> = ({ onNavigate, onOpenContactModal }) 
                     desc: 'Incubating and building innovative commercial ventures with disciplined risk management and strategic market positioning.'
                   }
                 ].map((pillar, idx) => (
-                  <div key={idx} className="p-6 rounded-2xl bg-[#121212] border border-[#222222] space-y-2 hover:border-[#D4AF37]/50 transition-all">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-[#1a1a1a] border border-[#2e2e2e]">
-                        {pillar.icon}
+                  <ScrollPop key={idx} direction="up" delay={idx * 0.08}>
+                    <div className="p-6 rounded-2xl bg-[#121212] border border-[#222222] space-y-2 hover:border-[#D4AF37]/50 transition-all">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-[#1a1a1a] border border-[#2e2e2e]">
+                          {pillar.icon}
+                        </div>
+                        <h4 className="text-base font-bold text-[#F5F5F5]">{pillar.title}</h4>
                       </div>
-                      <h4 className="text-base font-bold text-[#F5F5F5]">{pillar.title}</h4>
+                      <p className="text-xs sm:text-sm text-[#A3A3A3] leading-relaxed pl-11">
+                        {pillar.desc}
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-[#A3A3A3] leading-relaxed pl-11">
-                      {pillar.desc}
-                    </p>
-                  </div>
+                  </ScrollPop>
                 ))}
               </div>
             </div>
@@ -160,7 +162,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate, onOpenContactModal }) 
                 </button>
               </div>
             </div>
-          </div>
+          </ScrollPop>
         </div>
       </section>
     </div>

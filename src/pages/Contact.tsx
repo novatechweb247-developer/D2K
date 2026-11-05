@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PageId } from '../types';
 import { BRAND_INFO, SERVICES_DATA } from '../data/content';
 import { Phone, Mail, Instagram, Send, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ScrollPop } from '../components/ScrollPop';
 
 interface ContactProps {
   onNavigate: (page: PageId) => void;
@@ -32,7 +32,7 @@ export const Contact: React.FC<ContactProps> = ({ onNavigate }) => {
     <div className="min-h-screen bg-[#0a0a0a] text-[#F5F5F5] pt-24 pb-20">
       {/* Header Banner */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-[#1c1c1c]">
-        <div className="max-w-3xl space-y-4">
+        <ScrollPop direction="up" className="max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161616] border border-[#2e2e2e] text-xs font-medium text-[#D4AF37]">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Direct Communication</span>
@@ -43,14 +43,14 @@ export const Contact: React.FC<ContactProps> = ({ onNavigate }) => {
           <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed">
             Connect directly via verified phone, email, or Instagram, or submit an enquiry using the form below.
           </p>
-        </div>
+        </ScrollPop>
       </section>
 
       {/* Main Contact Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Details Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollPop direction="left" className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-[#121212] border border-[#222222] space-y-8">
               <div>
                 <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">
@@ -113,10 +113,10 @@ export const Contact: React.FC<ContactProps> = ({ onNavigate }) => {
                 <span>Global Professional Advisory & Operations</span>
               </div>
             </div>
-          </div>
+          </ScrollPop>
 
           {/* Contact Form */}
-          <div className="lg:col-span-7">
+          <ScrollPop direction="right" className="lg:col-span-7">
             <div className="p-8 sm:p-10 rounded-3xl bg-[#121212] border border-[#222222] relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#D4AF37] via-[#f3e5ab] to-[#D4AF37]" />
 
@@ -243,7 +243,7 @@ export const Contact: React.FC<ContactProps> = ({ onNavigate }) => {
                 </div>
               )}
             </div>
-          </div>
+          </ScrollPop>
         </div>
       </section>
     </div>
